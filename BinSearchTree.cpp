@@ -49,9 +49,9 @@ void BinSearchTree::traverseNodes(TreeNode* root) {
 
 // more functions
 bool BinSearchTree::remove(int key) {
-    TreeNode* p = root;
-    TreeNode* q = nullptr;
-    // search if it exists on the tree
+    TreeNode* p = root; // the node to be deleted
+    TreeNode* q = nullptr; // p's parent
+    // search for the node
     while (p != nullptr && p->info != key) {
         q = p;
         if (key < p->info){
@@ -61,18 +61,18 @@ bool BinSearchTree::remove(int key) {
             p = p->right;
         }
     }
-    // if it does not exist on the tree (search fails)
+    // once we exit the loop
     TreeNode* rp; // new node to be p's replacement
     // find rp for p when p has at MOST one child
-    if (p->left == nullptr) { // if one child on the right
-        rp = p->right;
+    if (p->left == nullptr) { // if no child on the left
+        rp = p->right; // child on the right (ONE child)
     }
-    else if (p->right == nullptr) { // if one child on the left
-        rp = p->left;
+    else if (p->right == nullptr) { // if no child on the right
+        rp = p->left; // one child on the left
     }
     else { // if two children
-        TreeNode* f = p;
-        rp = p->right;
+        TreeNode* f = p; // f is set to the parent of rp (p)
+        rp = p->right; // rp is set as the inorder successor of p 
         TreeNode* s = rp->left;
         while(s != nullptr) {
             f = rp;
