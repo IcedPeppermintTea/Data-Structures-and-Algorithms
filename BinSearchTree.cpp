@@ -4,6 +4,7 @@
 bool BinSearchTree::insert(int newInt){
     TreeNode* p = root; // p is the root
     TreeNode* q = nullptr; // q is the parent of p, p starts at root
+    // might need to default right and left to null in .h
     // looking for the node to see if it is already in the list
     while (p != nullptr) { // as long as tree not empty and not the end
         if (p->info == newInt) { // if the int is equal to the value of the root
