@@ -8,8 +8,8 @@
 /********************************************************************************
 default constructor
 ********************************************************************************/
-DynamicQueue::DynamicQueue() {
-    front = nullptr;
+DynamicQueue::DynamicQueue() { // constructor
+    front = nullptr; // initialize both pointers to null
     rear = nullptr;
 }
 
@@ -21,18 +21,18 @@ bool DynamicQueue::empty() {
 }
 
 void DynamicQueue::insert(int x) {
-    DynamicNode* p = new DynamicNode;
-    p->info =x;
-    p->next = nullptr;
+    DynamicNode* p = new DynamicNode; // create new node
+    p->info =x; // give node the value you want to insert
+    p->next = nullptr; // the p->next is null 
 
-    if (empty()) {
-        front = p;
+    if (empty()) { // if the queue is empty
+        front = p; // p becomes the first node (front)
     }
-    else {
-        rear->next = p;
+    else { // if the queue is not empty
+        rear->next = p; // the rear's next becomes p
     }
 
-    rear = p;
+    rear = p; // the new rear is p
 }
 
 int DynamicQueue::remove() {
