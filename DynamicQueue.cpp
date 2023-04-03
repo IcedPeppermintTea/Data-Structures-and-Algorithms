@@ -35,20 +35,20 @@ void DynamicQueue::insert(int x) {
     rear = p; // the new rear is p
 }
 
-int DynamicQueue::remove() {
-    if (empty()) {
+int DynamicQueue::remove() { // remove the first node
+    if (empty()) { // if the queue is empty
         std::cout << "queue underflow";
-        exit(1);
+        exit(1); // no node to delete, exit safely
     }
+    // if queue not empty
+    DynamicNode* p = front; // create a node to assign the front's value 
+    int temp = p->info; // temporary int to take on the front's info
+    front = p->next; // the node after the front becomes the new front
+    delete p; // delete p (old front)
+    if (front == nullptr) // if the queue is empty?
+        rear = nullptr; // the rear is also empty
 
-    DynamicNode* p = front;
-    int temp = p->info;
-    front = p->next;
-    delete p;
-    if (front == nullptr)
-        rear = nullptr;
-
-    return temp;
+    return temp; // return the value of the old front
 }
 
 void DynamicQueue::priorityQueue(char a, int size){
