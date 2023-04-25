@@ -272,3 +272,18 @@ TreeNode* BinSearchTree::delete(TreeNode* root, int data) {
     }
     return root;
 }
+
+// Building a BST from a sorted array
+TreeNode* BinSearchTree::buildTree (int input[], int start, int end) {
+    // see part (a) below about the blanks
+    if (start > end) { // if the first index is larger than the last, empty, problem, etc...
+    return null;
+    }
+    int mid = ( start + end ) / 2; // middle element
+    TreeNode* root = new TreeNode; // create the root node
+    root->info = input[mid]; // element at the middle turns into the root
+    root->left = buildTree (input, start, mid - 1); // do process for left side of mid
+    root->right = buildTree (input, mid + 1, end); // 
+    return root;
+}
+    
