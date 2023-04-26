@@ -293,14 +293,14 @@ void findPairValue (int array[], int n, int value){
 // assume non-empty array of length n
 heapsort (array); // assume heapsort is already implemented
 int low=0, high=n;
-while (low < high){
-    int sum = array[low] + array[high];
-    if (sum == value){
-        print array[low] and array[high] then return; // pseudocode
-    } else if(sum < value){
-        low++;
-    } else{
-        high--;
+while (low < high){ // while the low number is still less than the highest (we haven't reached the highest)
+    int sum = array[low] + array[high]; // sum the values in the lowest and highest places
+    if (sum == value){ // if the sum of those two values equals the value we are looking for
+        print array[low] and array[high] then return; // pseudocode // print the pair on the screen
+    } else if(sum < value){ // otherwise, if the sum is less than the value
+        low++; // go to the next low item (low incremented)
+    } else{ // if the sum is larger than the value
+        high--; // look for the next high number ( high decremented)
     }
   }
 }
