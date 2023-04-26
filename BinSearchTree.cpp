@@ -286,4 +286,21 @@ TreeNode* BinSearchTree::buildTree (int input[], int start, int end) {
     root->right = buildTree (input, mid + 1, end); // 
     return root;
 }
-    
+
+// Heapsort: code finds if a pair of numbers exists in an n-element array so that the two numbers add up to a given value. 
+// If there is, print the two numbers and return.
+void findPairValue (int array[], int n, int value){
+// assume non-empty array of length n
+heapsort (array); // assume heapsort is already implemented
+int low=0, high=n;
+while (low < high){
+    int sum = array[low] + array[high];
+    if (sum == value){
+        print array[low] and array[high] then return; // pseudocode
+    } else if(sum < value){
+        low++;
+    } else{
+        high--;
+    }
+  }
+}
